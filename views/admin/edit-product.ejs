@@ -1,0 +1,29 @@
+<!-- edit-product.ejs -->
+
+<% include ../partials/header.ejs %>
+
+<main class="container">
+  <h1><%= pageTitle %></h1>
+  <form action="/admin/edit-product/<%= product.id %>" method="POST">
+    <input type="hidden" name="productId" value="<%= product.id %>">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" name="title" value="<%= product.title %>">
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image URL</label>
+      <input type="text" class="form-control" id="imageUrl" name="imageUrl" value="<%= product.imageUrl %>">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" name="price" value="<%= product.price %>">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" id="description" name="description"><%= product.description %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Product</button>
+  </form>
+</main>
+
+<% include ../partials/footer.ejs %>
