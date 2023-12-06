@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoConnect = require("./util/database").mongoConnect;
 
+const User = require("./models/user");
 const errorController = require("./controllers/error");
 
 const app = express();
@@ -19,6 +20,12 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // app.use((req, res, next) => {});
 
+app.use((req, res, next) => {
+  User.findById("642811cdaa73d64dd9937a98").then((user) => {
+    req.user = user;
+    next();
+  });
+});
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
