@@ -4,8 +4,8 @@
 
 <main class="container">
   <h1><%= pageTitle %></h1>
-  <form action="/admin/edit-product/<%= product.id %>" method="POST">
-    <input type="hidden" name="productId" value="<%= product.id %>">
+  <form action="/admin/edit-product/<%= product._id %>" method="POST">
+    <input type="hidden" name="productId" value="<%= product._id %>">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" id="title" name="title" value="<%= product.title %>">
