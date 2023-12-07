@@ -1,7 +1,7 @@
-//const Sequelize = require('sequelize');
+/*//const Sequelize = require('sequelize');
 
-const getDB = require("../util/database").getDB;
-const mongodb = require("mongodb");
+//const getDB = require("../util/database").getDB;
+//const mongodb = require("mongodb");
 //const sequelize = require('../util/database');
 const db = require("../util/database").getDB;
 class User {
@@ -22,7 +22,7 @@ class User {
   name: Sequelize.STRING,
   email: Sequelize.STRING
 });*/
-save() {
+/*save() {
   const db = getDB();
   db.collection("users").insertOne(this);
 }
@@ -131,4 +131,4 @@ getOrders() {
 }
 }
 
-module.exports = User;
+module.exports = User;*/
