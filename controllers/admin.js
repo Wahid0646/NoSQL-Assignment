@@ -10,6 +10,7 @@ exports.postAddProduct = (req, res, next) => {
     price: price,
     description: description,
     imageUrl: imageUrl,
+    userId: req.user,
   });
   product
     .save()
@@ -50,7 +51,24 @@ exports.postAddProduct = (req, res, next) => {
       res.redirect('/admin/products');*/
 exports.getProducts = (req, res, next) => {
   Product.find()
+      // .select("title price -_id")
+    // .populate("userId", "name email")
+
+    //Output of populate and select :
+
+    //     [
+    //   {
+    //     title: 'Book',
+    //     price: 19.99,
+    //     userId: {
+    //       _id: new ObjectId("643d788b766004f0e0226739"),
+    //       name: 'nidhi',
+    //       email: 'nidhi@gmail.com'
+    //     }
+    //   }
+    // ]
     .then((products) => {
+      console.log(products);
       res.render("admin/products", {
         prods: products,
         pageTitle: "Admin Products",
